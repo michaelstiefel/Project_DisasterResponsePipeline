@@ -1,3 +1,4 @@
 env/**
 models/classifier.pkl
 data/DisasterResponse.db
+.DS_Store
