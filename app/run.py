@@ -1,6 +1,7 @@
 import json
 import plotly
 import pandas as pd
+import re
 
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
@@ -15,15 +16,21 @@ from sqlalchemy import create_engine
 app = Flask(__name__)
 
 def tokenize(text):
+    # Normalize text to standard characters
+
+    text = re.sub(r"[^a-zA-Z0-9]", " ", text)
+
     tokens = word_tokenize(text)
+
+    tokens = [t for t in tokens if t not in stopwords.words('english')]
     lemmatizer = WordNetLemmatizer()
 
-    clean_tokens = []
+    lemmatised_tokens = []
     for tok in tokens:
-        clean_tok = lemmatizer.lemmatize(tok).lower().strip()
-        clean_tokens.append(clean_tok)
+        lemmatised_tok = lemmatizer.lemmatize(tok)
+        lemmatised_tokens.append(lemmatised_tok)
 
-    return clean_tokens
+    return lemmatised_tokens
 
 # load data
 engine = create_engine('sqlite:///../data/DisasterResponse.db')
