@@ -33,3 +33,12 @@ Run the following commands in the project's root directory to set up database an
 To see how the machine learning classifier would classify a message, type the message in the web app input field.
 
 To see summary statistics for the training data, have a look at the plotly visualisations below.
+
+The first plot shows the distribution of message genres.
+![plot1](./Distribution_of_genres.png)
+
+The second plot shows the distribution of message categories.
+![plot2](./Distribution_of_message_categories.png)
+
+The third plot shows a heatmap of correlations among the message categories. The category "child alone" has been removed because it did not contain relevant data. While the general correlation across message categories is week, some patterns are visible, for instance earthquakes are related to floods (possibly due to tsunamis) and infrastructure-related messages are correlated with shops and other infrastructure. 
+![plot3](./Heatmap_of_message_categories.png)
