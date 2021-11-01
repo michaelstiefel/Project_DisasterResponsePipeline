@@ -30,4 +30,6 @@ Run the following commands in the project's root directory to set up database an
 
 ### Usage
 
-a) To see how the machine learning classifier would classify
+To see how the machine learning classifier would classify a message, type the message in the web app input field.
+
+To see summary statistics for the training data, have a look at the plotly visualisations below.
